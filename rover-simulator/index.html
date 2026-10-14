@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReRassor Simulator</title>
+</head>
+<body>
+
+  <div id="simulator">
+
+    <div id="simulation-area">
+      <h1>Rover Simulation</h1>
+      <p>Godot simulation will appear here.</p>
+    </div>
+
+      
+    <!-- Floating rover controller -->
+    <div id="rover-controls">
+
+        <div class="controls-header">
+          <span>Rover Controls</span>
+        </div>
+
+        <div class="direction-pad">
+          <button id="forward" class="direction-button">↑</button>
+          <button id="left" class="direction-button">←</button>
+          <button id="stop" class="direction-button">■</button>
+          <button id="right" class="direction-button">→</button>
+          <button id="backward" class="direction-button">↓</button>
+        </div>
+
+    </div>
+
+
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
