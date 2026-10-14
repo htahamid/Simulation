@@ -1,10 +1,14 @@
 import { EditorView, basicSetup } from "codemirror"
 import { python } from "@codemirror/lang-python"
 
-// CodeMirror Terminal
+const fixedHeight = EditorView.theme({
+  "&": { height: "200px" },
+  ".cm-scroller": { overflow: "auto" }
+})
+
 const view = new EditorView({
-  doc: "console.log('Hello, CodeMirror!')",
-  extensions: [basicSetup, python()],
+  doc: "print('Hello')",
+  extensions: [basicSetup, python(), fixedHeight],
   parent: document.getElementById("terminal-input")
 })
 
