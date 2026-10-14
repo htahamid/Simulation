@@ -1,3 +1,13 @@
+import { EditorView, basicSetup } from "codemirror"
+import { python } from "@codemirror/lang-python"
+
+// CodeMirror Terminal
+const view = new EditorView({
+  doc: "console.log('Hello, CodeMirror!')",
+  extensions: [basicSetup, python()],
+  parent: document.getElementById("terminal-input")
+})
+
 
 /*
  * Sets up the terminal expand/collapse button.
