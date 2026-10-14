@@ -1,0 +1,88 @@
+
+/* Floating command terminal */
+
+#command-terminal {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    width: 340px;
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 40px);
+
+    background-color: #172338;
+    color: white;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    overflow: auto;
+    z-index: 10;
+}
+
+/* Draggable title bar */
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 15px;
+    background-color: #243854;
+
+    font-weight: bold;
+
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.terminal-header:active {
+    cursor: grabbing;
+}
+
+/* Expand button */
+
+#expand-terminal {
+    padding: 5px 10px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Terminal contents */
+
+.terminal-body {
+    padding: 15px;
+}
+
+#command-name {
+    font-weight: bold;
+}
+
+#command-hex {
+    color: #7dd3fc;
+}
+
+/* Expanded code area */
+
+#terminal-code {
+    margin-top: 15px;
+    padding: 10px;
+
+    background-color: #0d1726;
+    border-radius: 6px;
+}
+
+#terminal-code[hidden] {
+    display: none;
+}
+
+#terminal-code pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.5;
+}

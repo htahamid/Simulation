@@ -1,16 +1,16 @@
 
 import { roverCommands } from '../commands/roverCommands.js';
 
-/*
- * Sets up the rover direction buttons.
- */
-export function setupRoverControls()
+export function setupRoverControls(onCommand)
 {
-    const directions = Object.keys(roverCommands);
-
-    for (const direction of directions)
+    for (const direction of Object.keys(roverCommands))
     {
         const button = document.getElementById(direction);
+
+        if (button === null)
+        {
+            continue;
+        }
 
         button.addEventListener('click', () =>
         {
@@ -18,6 +18,9 @@ export function setupRoverControls()
 
             console.log('Direction:', direction);
             console.log('Command:', command);
+
+            // Update the command terminal.
+            onCommand(direction, command);
         });
     }
 }
