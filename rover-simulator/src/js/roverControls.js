@@ -1,5 +1,7 @@
 
 import { roverCommands } from '../commands/roverCommands.js';
+import { runPython } from './pythonparser.js';
+import { getCode } from './commandTerminal.js';
 
 export function setupRoverControls(onCommand)
 {
@@ -20,6 +22,9 @@ export function setupRoverControls(onCommand)
             console.log('Command:', command);
 
             // Update the command terminal.
+            runPython(getCode()).then((output) => {
+                console.log(output);
+            });
             onCommand(direction, command);
         });
     }
