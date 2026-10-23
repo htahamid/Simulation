@@ -54,3 +54,8 @@ export function updateCommandTerminal(direction, command)
     // Temporary command preview.
     codeDisplay.textContent = `send_command(${hex})`;
 }
+
+export function getCode()
+{
+    return view.state.doc.toString();
+}
