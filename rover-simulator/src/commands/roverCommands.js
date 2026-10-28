@@ -12,3 +12,17 @@ export const roverCommands = {
     right: 0x04,
     stop: 0x00
 };
+
+function sendToGodot(direction) {
+    const iframe = document.getElementById('godot-frame');
+
+    if (!iframe?.contentWindow) return;
+
+    iframe.contentWindow.postMessage(
+        {
+            type: 'rover-control',
+            direction: direction
+        },
+        window.location.origin
+    );
+}

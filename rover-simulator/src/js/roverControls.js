@@ -29,3 +29,56 @@ export function setupRoverControls(onCommand)
         });
     }
 }
+
+function sendToGodot(direction) 
+    {
+        const iframe = document.getElementById('godot-frame');
+
+        if (!iframe?.contentWindow) {
+            console.error('Godot iframe not found!');
+            return;
+        }
+
+        iframe.contentWindow.postMessage(
+            {
+                type: 'rover-control',
+                direction: direction
+            },
+            window.location.origin
+        );
+
+        console.log('Sent to Godot:', direction);
+    }
+
+    const directions = {
+        forward: 'forward',
+        backward: 'backward',
+        left: 'left',
+        right: 'right'
+    };
+
+    Object.entries(directions).forEach(([buttonId, direction]) => {
+        const button = document.getElementById(buttonId);
+
+        button.addEventListener('pointerdown', (event) => {
+            button.setPointerCapture(event.pointerId);
+            sendToGodot(direction);
+        });
+
+        button.addEventListener('pointerup', () => {
+            sendToGodot('stop');
+        });
+
+        button.addEventListener('pointercancel', () => {
+            sendToGodot('stop');
+        });
+
+        button.addEventListener('lostpointercapture', () => {
+            sendToGodot('stop');
+        });
+    });
+
+    // Stop button
+    document.getElementById('stop').addEventListener('click', () => {
+        sendToGodot('stop');
+    });

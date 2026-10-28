@@ -10,11 +10,13 @@
 
   <div id="simulator">
 
-    <div id="simulation-area">
-      <h1>Rover Simulation</h1>
-      <p>Godot simulation will appear here.</p>
+    <div id="godot-container">
+      <iframe
+          id="godot-frame"
+          src="/ballSim.html"
+          title="Godot Ball Simulation">
+      </iframe>
     </div>
-
       
     <!-- Floating rover controller -->
     <div id="rover-controls">
@@ -62,6 +64,5 @@
   </div>
 
   <script type="module" src="/src/js/main.js"></script>
-  <script type="module" src="/src/js/commandTerminal.js"></script>
 </body>
 </html>
