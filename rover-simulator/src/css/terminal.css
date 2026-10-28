@@ -87,3 +87,17 @@
     font-size: 13px;
     line-height: 1.5;
 }
+
+/* Resizable terminal */
+#command-terminal {
+    position: absolute;
+
+    resize: both;
+    overflow: auto;
+
+    min-width: 250px;
+    min-height: 150px;
+
+    max-width: 90vw;
+    max-height: 90vh;
+}
