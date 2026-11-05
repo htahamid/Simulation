@@ -5,8 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ReRassor Simulator</title>
+  <!--importing fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/style.css"> 
 </head>
 <body>  
+
+  <!--left sidebar-->
+  <nav id="sidebar">
+    <div class="nav-item">
+      <img src="/purplelearning-icon.svg" alt="Learning" class="sidebar-icon">
+      <span class="label">Learning</span>
+    </div>
+    <div class="nav-item active">
+      <img src="/orangehome-icon.svg" alt="Home" class="sidebar-icon">
+      <span class="label">Home</span>
+    </div>
+    <div class="nav-item">
+      <img src="/bluefullcode-icon.svg" alt="View Full Code" class="sidebar-icon">
+      <span class="label">View Full Code</span>
+    </div>
+    <div class="nav-item">
+      <img src="/orangechallenge-icon.svg" alt="Challenges" class="sidebar-icon">
+      <span class="label">Challenges</span>
+    </div>
+  </nav>
 
   <div id="simulator">
 
@@ -18,32 +43,28 @@
       </iframe>
     </div>
       
-    <!-- Floating rover controller -->
-    <div id="rover-controls">
+    <div id="rover-controls" class="overlay-panel">
 
-        <div class="controls-header">
+        <div class="controls-header drag-handle">
           <span>Rover Controls</span>
         </div>
 
         <div class="direction-pad">
-          <button id="forward" class="direction-button">↑</button>
-          <button id="left" class="direction-button">←</button>
-          <button id="stop" class="direction-button">■</button>
-          <button id="right" class="direction-button">→</button>
-          <button id="backward" class="direction-button">↓</button>
+          <button id="forward" class="direction-button up">↑</button>
+          <button id="left" class="direction-button left">←</button>
+          <button id="stop" class="direction-button stop">■</button>
+          <button id="right" class="direction-button right">→</button>
+          <button id="backward" class="direction-button down">↓</button>
         </div>
 
     </div>
 
-    
-    <!-- Floating command terminal -->
-    <div id="command-terminal">
 
-        <div class="terminal-header">
+    <div id="command-terminal" class="overlay-panel">
+
+        <div class="terminal-header drag-handle">
             <span>Command Terminal</span>
-            <button id="expand-terminal" type="button">
-                Expand
-            </button>
+            <button id="expand-terminal" type="button">Expand</button>
         </div>
 
         <div id="terminal-input"></div>
@@ -58,8 +79,6 @@
         </div>
 
     </div>
-
-
 
   </div>
 

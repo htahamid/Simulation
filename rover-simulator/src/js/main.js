@@ -1,31 +1,20 @@
-import '/src/css/global.css';
-import '/src/css/layout.css';
-import '/src/css/controls.css';
-import '/src/css/terminal.css';
-
+// style.css import
+import '/src/css/style.css'; 
 
 import { setupRoverControls } from '/src/js/roverControls.js';
-
-import {
-    setupCommandTerminal,
-    updateCommandTerminal
-} from './commandTerminal.js';
-
+import { setupCommandTerminal, updateCommandTerminal } from './commandTerminal.js';
 import { makeDraggable } from './draggablePanel.js';
 
-setupCommandTerminal(); // Initialize terminal behavior.
-setupRoverControls(updateCommandTerminal); // Initialize the directional buttons.
+// terminal and controls here
+setupCommandTerminal(); 
+setupRoverControls(updateCommandTerminal); 
 
 const controls = document.getElementById('rover-controls');
-const controlsHeader = controls.querySelector('.controls-header');
+const controlsHeader = controls.querySelector('.drag-handle');
+if (controls && controlsHeader) makeDraggable(controls, controlsHeader); 
 
-makeDraggable(controls, controlsHeader); // Make the controls draggable using its title bar.
-
-// Make command terminal draggable.
 const terminal = document.getElementById('command-terminal');
-const terminalHeader = terminal.querySelector('.terminal-header');
+const terminalHeader = terminal.querySelector('.drag-handle');
+if (terminal && terminalHeader) makeDraggable(terminal, terminalHeader); 
 
-makeDraggable(terminal, terminalHeader); // Make the terminal draggable using its title bar.
-
-
-console.log('ReRassor Simulator loaded!');
+console.log('ReRassor Simulator loaded with Figma UI!');
